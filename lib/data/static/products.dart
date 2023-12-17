@@ -205,4 +205,35 @@ List<Product> sampleProducts = [
       ProductProperty(name: "Size", values: ["256 GB"]),
     ],
   ),
+  Product(
+    id: 5,
+    name: "bag",
+    description: "A new smart phone",
+    brandId: 1,
+    brandName: "Apple",
+    brandLogoUrl:
+        "https://t3.ftcdn.net/jpg/04/13/51/82/360_F_413518262_h39gdvuebPajcWcRtHrK5npLzVzE4cbb.jpg",
+    rating: 4.8,
+    variations: [
+      ProductVariation(
+        id: 1,
+        productId: 1,
+        price: 25888,
+        quantity: 10,
+        inStock: true,
+        productVariantImages: [
+          "https://i.pinimg.com/564x/42/29/41/4229419128020ac54791888e84d6a03c.jpg",
+        ],
+        productPropertiesValues: [
+          ProductPropertyAndValue(
+            property: "Material",
+            value: "leather",
+          ),
+        ],
+      ),
+    ],
+    availableProperties: [
+      ProductProperty(name: "Material", values: ["leather"]),
+    ],
+  ),
 ];
