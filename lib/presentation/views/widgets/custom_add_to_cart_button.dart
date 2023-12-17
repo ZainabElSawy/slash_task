@@ -11,7 +11,7 @@ class CustomAddToCartButton extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: ElevatedButton(
         onPressed: () {
-          // Your button onPressed logic goes here
+          // Triggered when the "Add to Cart" button is pressed
           showSuccessSnackbar(context, 'Add to cart successfully !');
         },
         style: ElevatedButton.styleFrom(
@@ -27,7 +27,7 @@ class CustomAddToCartButton extends StatelessWidget {
           width: double.infinity,
           padding: const EdgeInsets.all(16),
           child: const Text(
-            'Add To Card',
+            'Add To Cart',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 25),
           ),
@@ -36,6 +36,7 @@ class CustomAddToCartButton extends StatelessWidget {
     );
   }
 
+  // Function to show a success snackbar with a given message
   void showSuccessSnackbar(BuildContext context, String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(

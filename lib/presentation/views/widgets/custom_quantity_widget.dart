@@ -14,6 +14,7 @@ class CustomQuantityWidget extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Row(
         children: [
+          // Quantity Text and Minus Button
           Row(
             children: [
               const Text(
@@ -21,6 +22,8 @@ class CustomQuantityWidget extends StatelessWidget {
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
               const SizedBox(width: 20),
+
+              // Minus Button
               Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 8,
@@ -35,6 +38,7 @@ class CustomQuantityWidget extends StatelessWidget {
                 ),
                 child: GestureDetector(
                   onTap: () {
+                    // Decrease the product counter when the minus button is tapped
                     context.read<ProductCounterCubit>().minusFromCounter();
                   },
                   child: const Text(
@@ -47,6 +51,8 @@ class CustomQuantityWidget extends StatelessWidget {
                   ),
                 ),
               ),
+
+              // Display the current counter value
               Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 8,
@@ -60,12 +66,14 @@ class CustomQuantityWidget extends StatelessWidget {
                 child: BlocBuilder<ProductCounterCubit, int>(
                   builder: (context, state) {
                     return Text(
-                      state.toString(),
+                      state.toString(), // Show the current counter value
                       style: const TextStyle(color: Colors.white, fontSize: 20),
                     );
                   },
                 ),
               ),
+
+              // Plus Button
               Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 8,
@@ -80,6 +88,7 @@ class CustomQuantityWidget extends StatelessWidget {
                 ),
                 child: GestureDetector(
                   onTap: () {
+                    // Increase the product counter when the plus button is tapped
                     context.read<ProductCounterCubit>().addToCounter();
                   },
                   child: const Text(

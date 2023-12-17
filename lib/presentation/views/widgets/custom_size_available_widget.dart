@@ -15,21 +15,28 @@ class CustomSizeAvailableWidge extends StatefulWidget {
 }
 
 class _CustomSizeAvailableWidgeState extends State<CustomSizeAvailableWidge> {
+  // State variable to track the chosen size
   int chosedSize = 0;
+
   @override
   Widget build(BuildContext context) {
+    // Extracts the "Size" property from the product's available properties
     ProductProperty? sizeProperty = widget.product.availableProperties
         .firstWhere((property) => property.name == "Size",
             orElse: () => ProductProperty(name: "", values: []));
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        // Displays the size row if size values are available
         sizeProperty.values.isNotEmpty
             ? const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: CustomSizeRow(),
               )
             : Container(),
+
+        // Displays buttons for each available size
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(
@@ -40,9 +47,11 @@ class _CustomSizeAvailableWidgeState extends State<CustomSizeAvailableWidge> {
                 content: sizeProperty.values[index].toString(),
                 textColor: chosedSize == index ? Colors.black : Colors.white,
                 backgroundColor: chosedSize == index
-                    ? const Color(0xFFB8F02F)
-                    : const Color(0xFF272727),
+                    ? const Color(0xFFB8F02F) // Selected size background color
+                    : const Color(
+                        0xFF272727), // Unselected size background color
                 onTap: () {
+                  // Updates the chosen size and triggers a UI update
                   chosedSize = index;
                   setState(() {});
                 },

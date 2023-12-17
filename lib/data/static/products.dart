@@ -203,7 +203,6 @@ List<Product> sampleProducts = [
     availableProperties: [
       ProductProperty(name: "Color", values: [0xFF000000]),
       ProductProperty(name: "Size", values: ["256 GB"]),
-      ProductProperty(name: "Material", values: ["stainless steel"]),
     ],
   ),
 ];

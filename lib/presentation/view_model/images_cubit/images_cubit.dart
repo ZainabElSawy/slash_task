@@ -6,7 +6,7 @@ class ImagesCubit extends Cubit<int> {
   int chosedSize = 0;
   int chosedMaterial = 0;
   final PageController pageConstroller = PageController(
-    initialPage: 0,
+    initialPage: 1,
     viewportFraction: 0.8,
   );
   @override

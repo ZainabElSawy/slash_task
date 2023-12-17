@@ -23,7 +23,10 @@ class CustomSmallSlidingImages extends StatelessWidget {
             image: images[index],
             index: index,
             onTap: () {
+              // Change the current page in the ImagesCubit when a small image is tapped
               context.read<ImagesCubit>().changePage(index);
+
+              // Animate to the selected page using the page controller
               context.read<ImagesCubit>().pageConstroller.animateToPage(
                     index,
                     duration: const Duration(
@@ -38,5 +41,3 @@ class CustomSmallSlidingImages extends StatelessWidget {
     );
   }
 }
-
-

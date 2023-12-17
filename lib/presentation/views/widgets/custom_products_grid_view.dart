@@ -17,31 +17,37 @@ class CustomProductsGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //to show the cards of products in the form of gridview
+    // Display a grid view of product cards
     return GridView.builder(
       padding: const EdgeInsets.all(16.0),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        crossAxisSpacing: 16,
+        crossAxisSpacing: 20,
         mainAxisSpacing: 16,
       ),
       itemCount: products.length,
       itemBuilder: (context, index) {
         final product = products[index];
+
+        // Wrap each product card with a GestureDetector for tapping
         return GestureDetector(
           onTap: () {
+            // Navigate to the ProductDetailsScreen with MultiBlocProvider
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => MultiBlocProvider(
                   providers: [
+                    // Bloc to manage images in the product details screen
                     BlocProvider(
                       create: (context) => ImagesCubit()..changePage(0),
                     ),
+                    // Bloc to manage the current index of the product in the details screen
                     BlocProvider(
                       create: (context) => ProductIndexCubit(product)
                         ..changeProductCurrentIndex(0),
                     ),
+                    // Bloc to manage the product counter in the details screen
                     BlocProvider(
                       create: (context) => ProductCounterCubit(),
                     ),
@@ -53,6 +59,7 @@ class CustomProductsGridView extends StatelessWidget {
               ),
             );
           },
+          // Display a custom card item for each product
           child: CustomCardItem(product: product),
         );
       },

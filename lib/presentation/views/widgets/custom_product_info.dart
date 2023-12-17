@@ -21,10 +21,12 @@ class CustomProductInfo extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          // CustomProductTypeAndPrice: Widget displaying product type and price
           CustomProductTypeAndPrice(
             product: product,
             currentIndex: currentIndex,
           ),
+          // CustomBrandInfo: Widget displaying brand information
           CustomBrandInfo(product: product),
         ],
       ),
